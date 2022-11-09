@@ -16,8 +16,8 @@ import { deleteContact } from 'redux/operations';
 export const Contact = ({ id, name, number, avatar, mail }) => {
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteContact(id));
-  const telNumber = `tel:` + `${number}`;
-  const emailAdres = `mailto:` + `${mail}`;
+  const telNumber = 'tel:' + number;
+  const emailAdres = `mailto:` + mail;
 
   return (
     <Item>
