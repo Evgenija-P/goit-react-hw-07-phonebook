@@ -1,17 +1,17 @@
-/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 
 import { Form, Label, Input, Button } from './ContactForm.styled';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 
 export const ContactForm = () => {
   const nameId = nanoid(3);
   const numberId = nanoid(3);
-  const contacts = useSelector(getContacts);
+  const contacId = nanoid(2);
+  const { contacts } = useSelector(getContacts);
   const [nameForm, setNameForm] = useState('');
   const [number, setNumber] = useState('');
 
@@ -35,7 +35,7 @@ export const ContactForm = () => {
       return alert(`${nameForm} is already in contacts.`);
     }
 
-    dispatch(addContact({ nameForm, number }));
+    dispatch(addContact({ id: contacId, name: nameForm, phone: number }));
 
     reset();
   };

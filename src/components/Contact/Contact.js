@@ -1,14 +1,14 @@
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { BsTelephone } from 'react-icons/bs';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 
 import { Button } from '../ContactList/ContactList.styled';
-import { deletContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 
 export const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deletContact(id));
+  const handleDelete = () => dispatch(deleteContact(id));
   return (
     <>
       <p>
