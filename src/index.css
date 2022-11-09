@@ -25,10 +25,12 @@ p {
 }
 ul,
 ol,
-li {
+li,
+a {
   margin: 0;
   padding: 0;
 }
-li {
+li,
+a {
   list-style: none;
 }

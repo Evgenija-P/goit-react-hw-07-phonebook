@@ -25,9 +25,15 @@ export const ContactList = () => {
       {isLoading && <p>Loading tasks...</p>}
       {error && <p>{error}</p>}
       {contacts &&
-        contactsState.map(({ id, name, phone }) => (
+        contactsState.map(({ id, name, phone, avatar, mail }) => (
           <Item key={id}>
-            <Contact id={id} name={name} number={phone} />
+            <Contact
+              id={id}
+              name={name}
+              number={phone}
+              avatar={avatar}
+              mail={mail}
+            />
           </Item>
         ))}
     </List>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { AiOutlineUserAdd } from 'react-icons/ai';
+import { BsPersonPlus } from 'react-icons/bs';
 
 import { Form, Label, Input, Button } from './ContactForm.styled';
 import { addContact } from 'redux/operations';
@@ -73,7 +73,7 @@ export const ContactForm = () => {
           onChange={handleChangeNumber}
         />
         <Button type="submit">
-          <AiOutlineUserAdd size={24} color={'blue'} />
+          <BsPersonPlus size={33} />
         </Button>
       </Form>
     </>
