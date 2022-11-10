@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loader, Placeholder } from 'rsuite';
+
 import { fetchContacts } from 'redux/operations';
 import { List, Item } from './ContactList.styled';
 import { Contact } from 'components/Contact/Contact';
@@ -17,18 +17,17 @@ export const ContactList = () => {
   }, [dispatch]);
 
   const normalized = filter.toLocaleLowerCase();
-  const contactsState = contacts?.filter(contact =>
+  const contactsFilter = contacts?.filter(contact =>
     contact.name.toLocaleLowerCase().includes(normalized)
+  );
+
+  const contactsState = contactsFilter.sort((firstContact, secondContact) =>
+    firstContact.name.localeCompare(secondContact.name)
   );
 
   return (
     <List>
-      {isLoading && (
-        <div>
-          <Placeholder.Paragraph rows={8} />
-          <Loader center content="loading" />
-        </div>
-      )}
+      {isLoading && <p>Loading....</p>}
       {error && <p>{error}</p>}
       {contacts &&
         contactsState.map(({ id, name, phone, avatar, mail }) => (

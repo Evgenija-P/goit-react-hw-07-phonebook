@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { BsPersonPlus } from 'react-icons/bs';
-
+import { toast } from 'react-toastify';
 import { Form, Label, Input, Button } from './ContactForm.styled';
 import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
@@ -32,7 +32,17 @@ export const ContactForm = () => {
         contact => contact.name.toLowerCase() === nameForm.toLowerCase()
       )
     ) {
-      return alert(`${nameForm} is already in contacts.`);
+      toast.error('Oh, such a contact already exists!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
     }
 
     dispatch(addContact({ id: contacId, name: nameForm, phone: number }));

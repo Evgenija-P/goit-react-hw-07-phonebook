@@ -2,11 +2,8 @@ import React from 'react';
 import { setTextFilter } from 'redux/filtersSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
 import { Label, Input, Title } from './Filter.styled';
 import { getValue } from 'redux/selectors';
-
-// import { Button } from './FeedbackOptions.styled';
 
 export const Filter = () => {
   const value = useSelector(getValue);

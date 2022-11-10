@@ -40,7 +40,7 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.contacts.findIndex(
-        contact => contact.id === action.payload
+        contact => contact.id === action.payload.id
       );
       state.contacts.splice(index, 1);
     },
@@ -49,27 +49,6 @@ const contactsSlice = createSlice({
       state.error = action.payload;
     },
   },
-  // addContact: {
-  //   reducer(state, action) {
-  //     state.push(action.payload);
-  //   },
-  //   prepare({ nameForm, number }) {
-  //     return {
-  //       payload: {
-  //         id: nanoid(3),
-  //         name: nameForm,
-  //         number,
-  //       },
-  //     };
-  //   },
-  // },
-  //   deletContact(state, action) {
-  //     const index = state.findIndex(contact => contact.id === action.payload);
-  //     state.splice(index, 1);
-  //   },
-  // }
 });
 
-// export const { fetchingInProgress, fetchingSuccess, fetchingError } =
-//   contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

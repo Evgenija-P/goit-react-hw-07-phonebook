@@ -1,4 +1,6 @@
 import React from 'react';
+import { ToastContainer, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
@@ -15,6 +17,7 @@ export const App = () => {
       <TitleContacts>Contacts</TitleContacts>
       <Filter />
       <ContactList />
+      <ToastContainer transition={Flip} />
     </AppWrapper>
   );
 };
