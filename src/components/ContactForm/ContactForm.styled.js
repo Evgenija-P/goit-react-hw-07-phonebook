@@ -29,19 +29,6 @@ export const Input = styled.input`
   outline: none;
 `;
 
-// export const Button = styled.button`
-//   width: 50px;
-//   height: 30px;
-//   border: 1px solid rgba(33, 33, 33, 0.2);
-//   border-radius: 4px;
-//   outline: none;
-
-//   :focus,
-//   :hover {
-//     box-shadow: 2px 8px 11px -2px rgba(0, 0, 0, 0.75);
-//   }
-// `;
-
 export const Button = styled.button`
   background-color: transparent;
   outline: none;
