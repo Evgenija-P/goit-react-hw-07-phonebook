@@ -1,11 +1,11 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { fetchContacts } from 'redux/operations';
 import { List, Item } from './ContactList.styled';
 import { Contact } from 'components/Contact/Contact';
 import { getContacts, getValue } from 'redux/selectors';
+import { Loader } from 'components/Loader/Loader';
 
 export const ContactList = () => {
   const filter = useSelector(getValue);
@@ -27,7 +27,7 @@ export const ContactList = () => {
 
   return (
     <List>
-      {isLoading && <p>Loading....</p>}
+      {isLoading && <Loader />}
       {error && <p>{error}</p>}
       {contacts &&
         contactsState.map(({ id, name, phone, avatar, mail }) => (

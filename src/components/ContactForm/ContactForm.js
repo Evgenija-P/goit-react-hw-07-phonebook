@@ -25,6 +25,17 @@ export const ContactForm = () => {
     setNumber(e.target.value);
   };
 
+  const options = {
+    position: 'top-center',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     if (
@@ -32,16 +43,7 @@ export const ContactForm = () => {
         contact => contact.name.toLowerCase() === nameForm.toLowerCase()
       )
     ) {
-      toast.error('Oh, such a contact already exists!', {
-        position: 'top-center',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'dark',
-      });
+      toast.error('Oh, such a contact already exists!', options);
       return;
     }
 
