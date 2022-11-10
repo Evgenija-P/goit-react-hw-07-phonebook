@@ -42,7 +42,7 @@ const contactsSlice = createSlice({
       const index = state.contacts.findIndex(
         contact => contact.id === action.payload
       );
-      state.splice(index, 1);
+      state.contacts.splice(index, 1);
     },
     [deleteContact.rejected](state, action) {
       state.isLoading = false;
